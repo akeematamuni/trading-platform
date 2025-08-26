@@ -1,0 +1,26 @@
+[GLOBAL]
+pants_version = "2.27.0"
+
+backend_packages = [
+    "pants.backend.python",
+    "pants.backend.python.lint.black",
+    "pants.backend.python.lint.isort",
+    "pants.backend.python.lint.flake8",
+    "pants.backend.python.lint.autoflake",
+    "pants.backend.python.typecheck.mypy",
+    "pants.backend.docker",
+]
+
+[python]
+interpreter_constraints = ["CPython>=3.10,<3.13"]
+enable_resolves = true
+default_resolve = "python-default"
+
+[python.resolves]
+python-default = "3rdparty/python/lockfiles/python-default.lock"
+
+[source]
+root_patterns = ["services", "libs", "tests"]
+
+[pytest]
+args = ["-q"]

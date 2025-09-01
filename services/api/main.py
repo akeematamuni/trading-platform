@@ -8,7 +8,7 @@ load_dotenv()
 app = FastAPI(title="Trading Platform", version="0.0.1")
 
 
-@app.get("/home")
+@app.get("/")
 async def get_home():
     return JSONResponse({"message": get_service_name()}, status_code=200)
 
